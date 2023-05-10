@@ -3,6 +3,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const Studentinfo = require("./student");
+const router = require("./route");
+
+app.use("/", router);
 
 mongoose
   .connect(
@@ -64,7 +67,16 @@ app.delete("/deletestudentdetails/:id", async (req, res) => {
     res.send(err.message);
   }
 });
+app.use("/", router);
 
-app.listen(4000, () => console.log("server running..."));
+app.listen(3000, () => {
+  console.log(`Application listening on http://localhost:${3000}`);
+});
+
+app.listen(3000, () => {
+  console.log(`Application listening on http://localhost:${3000}`);
+});
+
+app.listen(3000, () => console.log("server running..."));
 
 module.exports = app;
