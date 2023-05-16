@@ -1,11 +1,8 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
 
 const Studentinfo = require("./student");
-const router = require("./route");
-
-app.use("/", router);
+const app = express();
 
 mongoose
   .connect(
@@ -14,7 +11,6 @@ mongoose
   .then(() => console.log("Database connected"))
   .catch((err) => console.log(err));
 
-const app = express();
 app.use(express.json());
 
 app.post("/studentdetals", async (req, res) => {
@@ -66,15 +62,6 @@ app.delete("/deletestudentdetails/:id", async (req, res) => {
   } catch (err) {
     res.send(err.message);
   }
-});
-app.use("/", router);
-
-app.listen(3000, () => {
-  console.log(`Application listening on http://localhost:${3000}`);
-});
-
-app.listen(3000, () => {
-  console.log(`Application listening on http://localhost:${3000}`);
 });
 
 app.listen(3000, () => console.log("server running..."));
