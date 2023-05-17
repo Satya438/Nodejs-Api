@@ -3,15 +3,13 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const corsOptions = {
   origin: "http://localhost:3000",
-  methods: ["GET", "POST"],
   credentials: true,
   // allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-app.use(cors(corsOptions));
-
 const Studentinfo = require("./student");
 const app = express();
+app.use(cors(corsOptions));
 
 mongoose
   .connect(
