@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const Studentinfo = require("./student");
 const app = express();
@@ -63,6 +64,12 @@ app.delete("/deletestudentdetails/:id", async (req, res) => {
     res.send(err.message);
   }
 });
+
+app.use(
+  cors({
+    origin: "http://localhost:3001",
+  })
+);
 
 app.listen(3000, () => console.log("server running..."));
 

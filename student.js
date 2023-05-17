@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const Studentinfo = mongoose.Schema({
-  studentname: {
+  Name: {
     type: String,
     required: true,
   },
-  rollno: {
+  EmpId: {
     type: Number,
     required: true,
     unique: true,
