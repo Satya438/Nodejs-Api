@@ -1,6 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const corsOptions = {
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST"],
+  // allowedHeaders: ["Content-Type", "Authorization"],
+};
+
+app.use(cors(corsOptions));
 
 const Studentinfo = require("./student");
 const app = express();
@@ -64,14 +71,6 @@ app.delete("/deletestudentdetails/:id", async (req, res) => {
     res.send(err.message);
   }
 });
-
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
 
 app.listen(3000, () => console.log("server running..."));
 
