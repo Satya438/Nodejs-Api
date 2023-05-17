@@ -67,10 +67,10 @@ app.delete("/deletestudentdetails/:id", async (req, res) => {
 
 app.use(
   cors({
-    origin: "http://localhost:3001",
+    origin: "http://localhost:3000",
   })
 );
 
-app.listen(3001, () => console.log("server running..."));
+app.listen(3000, () => console.log("server running..."));
 
 module.exports = app;
