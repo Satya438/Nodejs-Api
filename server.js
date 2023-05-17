@@ -71,11 +71,7 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 
-app.use(
-  cors({
-    corsOptions,
-  })
-);
+app.use(cors(corsOptions));
 
 app.listen(3000, () => console.log("server running..."));
 
