@@ -15,11 +15,11 @@ mongoose
 app.use(express.json());
 
 app.post("/studentdetals", async (req, res) => {
-  const { studentname } = req.body;
-  const { rollno } = req.body;
+  const { Name } = req.body;
+  const { EmpId } = req.body;
   const { joiningdate } = req.body;
   try {
-    const newdata = new Studentinfo({ studentname, rollno, joiningdate });
+    const newdata = new Studentinfo({ Name, EmpId, joiningdate });
     newdata.save();
     return res.json(await Studentinfo.find());
   } catch (err) {
