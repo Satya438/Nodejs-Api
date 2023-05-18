@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Studentinfo = mongoose.Schema({
+const Employeinfo = mongoose.Schema({
   Name: {
     type: String,
     required: true,
@@ -8,7 +8,6 @@ const Studentinfo = mongoose.Schema({
   EmpId: {
     type: Number,
     required: true,
-    unique: true,
   },
   joiningdate: {
     type: Date,
@@ -16,4 +15,4 @@ const Studentinfo = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("studentinfo", Studentinfo);
+module.exports = mongoose.model("Employeinfo", Employeinfo);

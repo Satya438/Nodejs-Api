@@ -7,7 +7,7 @@ const corsOptions = {
   // allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-const Studentinfo = require("./student");
+const Employeinfo = require("./student");
 const app = express();
 app.use(cors(corsOptions));
 
@@ -25,9 +25,9 @@ app.post("/studentdetals", async (req, res) => {
   const { EmpId } = req.body;
   const { joiningdate } = req.body;
   try {
-    const newdata = new Studentinfo({ Name, EmpId, joiningdate });
+    const newdata = new Employeinfo({ Name, EmpId, joiningdate });
     newdata.save();
-    return res.json(await Studentinfo.find());
+    return res.json(await Employeinfo.find());
   } catch (err) {
     console.log(err.message);
   }
@@ -35,7 +35,7 @@ app.post("/studentdetals", async (req, res) => {
 
 app.get("/getstudenttdetails", async (req, res) => {
   try {
-    const data = await Studentinfo.find();
+    const data = await Employeinfo.find();
     return res.json(data);
   } catch (err) {
     console.log(err.message);
@@ -43,7 +43,7 @@ app.get("/getstudenttdetails", async (req, res) => {
 });
 app.get("/getstudenttdetail/:id", async (req, res) => {
   try {
-    const Data = await Studentinfo.findById(req.params.id);
+    const Data = await Employeinfo.findById(req.params.id);
     return res.json(Data);
   } catch (err) {
     console.log(err.message);
@@ -52,7 +52,7 @@ app.get("/getstudenttdetail/:id", async (req, res) => {
 
 app.put("/updatestudentdetails/:id", async (req, res) => {
   try {
-    const update = await Studentinfo.findByIdAndUpdate(
+    const update = await Employeinfo.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
@@ -64,7 +64,7 @@ app.put("/updatestudentdetails/:id", async (req, res) => {
 });
 app.delete("/deletestudentdetails/:id", async (req, res) => {
   try {
-    const data = await Studentinfo.findByIdAndDelete(req.params.id);
+    const data = await Employeinfo.findByIdAndDelete(req.params.id);
     return res.json(data);
   } catch (err) {
     res.send(err.message);
