@@ -1,15 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true,
-  // allowedHeaders: ["Content-Type", "Authorization"],
-};
 
 const Employeinfo = require("./student");
 const app = express();
-app.use(cors(corsOptions));
 
 mongoose
   .connect(
@@ -73,6 +67,12 @@ app.delete("/deletestudentdetails/:id", async (req, res) => {
 
 app.listen(3000, () => console.log("server running..."));
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 // module.exports = (req, res) => {
 //   // Set CORS headers
 //   res.setHeader("Access-Control-Allow-Origin", "*");
