@@ -67,20 +67,11 @@ app.delete("/deletestudentdetails/:id", async (req, res) => {
 
 app.listen(3000, () => console.log("server running..."));
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-// module.exports = (req, res) => {
-//   // Set CORS headers
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-//   // Handle the request
-//   // ...
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   credentials: true,
 // };
+
+// app.use(cors(corsOptions));
 
 module.exports = app;
