@@ -65,13 +65,12 @@ app.delete("/deletestudentdetails/:id", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("server running..."));
-
 const corsOptions = {
   origin: "http://localhost:3000",
   credentials: true,
 };
 
 app.use(cors(corsOptions));
+app.listen(3000, () => console.log("server running..."));
 
 module.exports = app;
