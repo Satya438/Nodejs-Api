@@ -1,14 +1,14 @@
 {
    "builds": [
     {
-      "src": "upload.js",
+      "src": "chatapi.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "upload.js"
+      "dest": "chatapi.js"
     }
   ]
 }
